@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Perform a real-time rent market data</title>
+    <script src=
+        "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: rgb(128, 0, 83);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        nav{
+          border: 1px solid rgb(220, 245, 255);
+          background-color: rgb(224, 230, 255);
+          padding: 10px;
+        }
+        a{
+          font-size: 25px;
+          font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+          color: darkolivegreen;
+          padding-left: 10px;
+          text-decoration: dotted;
+        }
+        .img{
+          padding-top: 3px;
+        }
+      </style>
+</head>
+
+<body>
+    
+    <nav>
+        <style>
+          nav{
+            padding-left: 20%;
+          }
+          .nav-name {
+            padding-right: 35%;
+            color:darkorchid;
+            font-weight: bold;
+            font-size: 25px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+          }
+          .column{
+            float:left;
+            padding: 2px;
+            text-align: center;
+        }
+        </style>
+        <span class="nav-name" href="index.html">RENT</span>
+        <a href="buy.html">BUY</a>
+        <a href="about.html">EXPLORE</a>
+        <a href="contact.html">CONTACT ME</a>
+       </nav>
+       <br>
+        <img src="rent1.webp" height="400px" width="1150px">
+        <p>Locationc: Chennai</p>
+        <img src="rent2.webp" height="400px" width="1150px">
+        <p>Location : Kerala</p>
+        <img src="rent3.webp" height="400px" width="1150px">
+        <p>Location: Andra</p>
+        <img src="rent4.webp" height="400px" width="1150px">
+        <p>Location: Bengaluru</p>
+        <img src="rent5.webp" height="400px" width="1150px">
+        <p>Location: Chennai</p>
+        <br>
+        <h1>HOUSES FOR RENT!!</h1>
+        <h3>Perform a real-time search</h3>
+
+        <b>Search the entire table:
+            <input id="entireSearch" type="text" placeholder="Search here">
+        </b>
+
+        <br>
+
+    <b>Search Names (Name, Duration,Type,Location or Price):
+        <select id="columnSelect">
+            <option value="all">All Names</option>
+            <option value="Name">Name</option>
+            <option value="Duration">Duration</option>
+            <option value="Type">Type</option>
+            <option value="Location">Location</option>
+            <option value="Price">Price</option>
+        </select>
+        <input id="columnSearch" type="text" placeholder="Search column">
+    </b>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Duration</th>
+            <th>Type</th>
+            <th>Location</th>
+            <th>Price</th>
+        </tr>
+        <tbody id="geeks">
+            <tr>
+                <td>Apartments</td>
+                <td>2years</td>
+                <td>1-BHK</td>
+                <td>Chennai</td>
+                <td>5Lakhs</td>
+            </tr>
+            <tr>
+                <td>Apartments</td>
+                <td>1year</td>
+                <td>2-BHK</td>
+                <td>Kerala</td>
+                <td>10Lakhs</td>
+            </tr>
+            <tr>
+                <td>Villas</td>
+                <td>5years</td>
+                <td>BHK</td>
+                <td>Andra</td>
+                <td>25Lakhs</td>
+            </tr>
+            <tr>
+                <td>Block-A</td>
+                <td>5 years</td>
+                <td>Srivari Apartments</td>
+                <td>Bengaluru</td>
+                <td>3Lakhs</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $("#entireSearch, #columnSearch").on("keyup", function () {
+                let entireValue = $("#entireSearch").val().toLowerCase();
+                let columnValue = $("#columnSearch").val().toLowerCase();
+                let selectedColumn = $("#columnSelect").val();
+
+                $("#geeks tr").each(function () {
+                    let rowText = $(this).text().toLowerCase();
+                    // Show all rows if entire search is empty
+                    let matchEntire = entireValue === ""; 
+
+                    if (entireValue !== "") {
+                        matchEntire = rowText.indexOf(entireValue) > -1;
+                    }
+                    // Assuming all rows initially match column search
+                    let matchColumn = true; 
+                    if (selectedColumn !== "all" && columnValue !== "") {
+                        let columnData = $(this).find("td:nth-child(" + 
+                        (selectedColumn === "Course" ? 1 : 
+                         (selectedColumn === "Duration" ? 2 : 3)) +
+                         ")").text().toLowerCase();
+                        matchColumn = columnData.indexOf(columnValue) > -1;
+                    }
+
+                    $(this).toggle(matchEntire && matchColumn);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

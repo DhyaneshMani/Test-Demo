@@ -1,0 +1,125 @@
+<html>
+    <head>
+      <link rel="icon" href="cv.png" type="image/png">
+      <title>Real estate</title> 
+      <style>
+        nav{
+          border: 1px solid rgb(203, 168, 27);
+          background-color: rgb(20, 96, 96);
+          padding: 10px;
+        }
+        a{
+          font-size: 25px;
+          font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+          color: darkolivegreen;
+          padding-left: 10px;
+          text-decoration: dotted;
+        }
+        .img{
+          padding-top: 3px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color:antiquewhite;
+        }
+        .container {
+            background-image: url('');
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-image:image('cv.png');
+            background-color:rgb(89, 135, 9);
+            border: rgb(181, 24, 24);
+            border-radius: 0%;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], input[type="password"], input[type="email"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #2e6b8f;
+            color: white;
+            text-align: center;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float:right;
+        }
+        input[type="submit"]:hover {
+            text-align: center;
+            background-color: #45a049;
+        }
+      </style>
+    </head>
+    <body>
+       <nav>
+        <style>
+          nav{
+            padding-left: 20%;
+          }
+          .nav-name {
+            padding-right: 35%;
+            color:rgb(70, 56, 77);
+            font-weight: bold;
+            font-size: 25px;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+          }
+        </style>
+        <span class="nav-name"><center>CONTACT US</center></span>
+       </nav>
+    <div class="container">
+        <h2><b><center>CONTACT FORM</center></b></h2>
+        <form action="#" method="post">
+            <label for="name" style="color:brown;"><b>NAME</b></label>
+            <input type="text" id="name" name="name" placeholder="Your name.." required>
+
+            <label for="email" style="color:brown";><b>EMAIL</b></label>
+            <input type="email" id="email" name="email" placeholder="Your email.." required>
+
+            <label for="phone" style="color:brown";><b>PHONE NUMBER</b></label>
+            <input type="tel" id="phone" name="phone" placeholder="Your phone number.." required style="width: 100%; box-sizing: border-box;padding: 10px;">
+            <br>
+            <label for="password" style="color:brown"><b>PASSWORD</b></label>
+            <input type="password" id="password" name="password" placeholder="Your password.." required>
+
+            <label for="age" style="color:brown"><b>AGE</b></label>
+            <input type="number" id="age" name="age" placeholder="Your age.." required>
+
+            <label for="gender" style="color:brown"><b>GENDER</b></label>
+            <input type="radio" id="male" name="gender" value="male"> Male
+            <input type="radio" id="female" name="gender" value="female"> Female
+            <input type="radio" id="other" name="gender" value="other"> Other
+            <br>
+            <label for="interests" style="color:brown"><b>Buy Or Rent</b></label>
+            <input type="checkbox" id="coding" name="interests" value="coding"> Buying
+            <input type="checkbox" id="reading" name="interests" value="reading"> Renting
+            <br>
+            <label for="birthdate" style="color:brown"><b>D.O.B</b></label>
+            <input type="date" id="birthdate" name="birthdate" required>
+            <br>
+            <label for="message" style="color:brown"><b>MESSAGE</b></label>
+            <textarea id="message" name="message" placeholder="Write something.." style="height:200px" required></textarea>
+
+            <label for="country" style="color:brown"><b>COUNTRY</b></label>
+            <select id="country" name="country" required>
+                <option value="">Select your country..</option>
+                <option value="USA">USA</option>
+                <option value="Canada">Canada</option>
+                <option value="UK">UK</option>
+                <option value="India">India</option>
+            </select>
+
+            <input type="submit" value="Submit">
+        </form>
+
+    </div>
+     
+    </body>
+</html>
